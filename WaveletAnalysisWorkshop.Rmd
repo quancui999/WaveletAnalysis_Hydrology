@@ -1,0 +1,65 @@
+---
+title: "Wavelet Analysis in Hydrology"
+author: "Quan Cui"
+date: "5/27/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Background
+
+This file is used for a workshop about how to process wavelet analysis on hydrology/climate data
+ 
+Workshop at Watershed Science & Modelling Laboratory, University of Alberta
+
+
+## 1. Basic setting
+```r
+library(WaveletComp)
+```
+
+## 2. Make some time series data
+
+First, let's make some time series data to get a better understanding about what time series data is.
+
+```{r}
+x = seq(0, 30, 0.1)
+x
+
+# This Y1 is a simple periodical data using Sin as the function. Dur to this function, the sata has a period as pi.
+Y1 = sin(x)
+plot(x, Y1, type = "l", col="red", xlab = "time", ylab = "Y1")
+legend("topright", legend = "Y1 = sin(x)", col="red", lty=1, cex=0.8)
+
+# Then we make our 2nd time series data that has half period as Y1
+Y2 = sin(2*x)
+plot(x, Y2, type = "l", col="blue", xlab = "time", ylab = "Y2")
+legend("topright", legend = "Y2 = sin(2x)", col="blue", lty=1, cex=0.8)
+
+# If we add Y1 and Y2 up, we get a new data. What is its period?
+Y12 = Y1 + Y2
+plot(x, Y12, type = "l", xlab = "time", ylab = "Y1 + Y2")
+legend("topright", legend = "Y = sin(x) + sin(2x)", lty=1, cex=0.8)
+
+# This is an increasing trend that we want to add to the time series data.
+Y3 = 0.2*x
+plot(x, Y3, type = "l", xlab = "time", ylab = "Y3", col=73)
+legend("bottomright", legend = "Y3 = 0.2 * x", lty=1, cex=0.8, col=73)
+
+# By adding the trend to Y12, this Y123 may be similar to a real-world time series data, which both has trend and period.
+Y123 = Y1 + Y2 + Y3
+plot(x, Y123, type = "l", xlab = "time", ylab = "Y1 + Y2 + Y3")
+legend("bottomright", legend = "Y' = sin(x) + sin(2x) + 0.1x", lty=1, cex=0.8)
+
+# If we use a package WaveletComp, we can easily use a function to make the data with trend.
+# The 'Ychange' data has changing periods, from 20 to 100, ends at x = 1000.
+library(WaveletComp)
+Ychange = periodic.series(start.period = 20, end.period = 100, length = 1000)
+plot(Ychange, type = "l", xlab = "time", ylab = "Y")
+
+```
+
+Day May27, 2021. Markdown trial Version 1 ends here.
