@@ -1,3 +1,5 @@
 # WaveletAnalysis_Hydrology
 
-This R code is meant to show how to process wavelet analysis of hydrologic and climate data.
+This repository is meant to illustrate process wavelet analysis on hydrologic / climate data using R.
+
+Quan Cui, 2021-05-27
