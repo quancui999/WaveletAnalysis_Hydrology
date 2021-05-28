@@ -62,5 +62,5 @@ plot(Ychange, type = "l", xlab = "time", ylab = "Y")
 
 ```
 
-May27, 2021. Markdown trial Version 1 ends here.
+
 May28, 2021. Markdown trial Version 1.1. Modified in browser.
