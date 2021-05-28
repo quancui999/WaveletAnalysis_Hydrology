@@ -54,12 +54,13 @@ Y123 = Y1 + Y2 + Y3
 plot(x, Y123, type = "l", xlab = "time", ylab = "Y1 + Y2 + Y3")
 legend("bottomright", legend = "Y' = sin(x) + sin(2x) + 0.1x", lty=1, cex=0.8)
 
-# If we use a package WaveletComp, we can easily use a function to make the data with trend.
-# The 'Ychange' data has changing periods, from 20 to 100, ends at x = 1000.
+# If we use a package WaveletComp, we can easily use a function to generate periodic data with trend.
+# There 'Ychange' has changing periods, from 20 to 100, ends at x = 1000.
 library(WaveletComp)
 Ychange = periodic.series(start.period = 20, end.period = 100, length = 1000)
 plot(Ychange, type = "l", xlab = "time", ylab = "Y")
 
 ```
 
-Day May27, 2021. Markdown trial Version 1 ends here.
+May27, 2021. Markdown trial Version 1 ends here.
+May28, 2021. Markdown trial Version 1.1. Modified in browser.
