@@ -5,3 +5,5 @@
 ## - And I am using it to help me get familiar with git at this moment.
 
 ### QuanC, 2021-05-27
+
+## it looks like that git desktop totally do the job
